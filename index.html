@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='ToDoApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ToDo Application</title>
+  </head>
+  <body>
+    <h1>To Do App</h1>
+    <div class="container">
+        <register></register>
+    </div>
+
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/app.module.js"></script>
+    <script src="src/register/register.module.js"></script>
+
+    <!-- 'Register' module artifacts -->
+    <script src="src/register/register.component.js"></script>
+
+    <!-- Services -->
+    <script src="src/service/user.service.js"></script>
+
+
+  </body>
+</html>
