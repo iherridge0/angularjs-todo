@@ -1,6 +1,6 @@
 (function (){
 'use strict';
 
-angular.module('Register', []);
+angular.module('Register', ['ui.router']);
 
 })();

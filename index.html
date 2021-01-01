@@ -8,19 +8,22 @@
   <body>
     <h1>To Do App</h1>
     <div class="container">
-        <register></register>
+        <ui-view></ui-view>
     </div>
 
 
     <!-- Libraries -->
     <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
-    <script src="src/app.module.js"></script>
+    <script src="src/app.js"></script>
     <script src="src/register/register.module.js"></script>
+    <script src="src/login/login.module.js"></script>
 
     <!-- 'Register' module artifacts -->
     <script src="src/register/register.component.js"></script>
+    <script src="src/login/login.component.js"></script>
 
     <!-- Services -->
     <script src="src/service/user.service.js"></script>
