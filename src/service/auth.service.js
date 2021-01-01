@@ -18,30 +18,47 @@ function AuthService($http) {
 
   }
 
-  service.authenticate = function (){
-    console.log("authenticating user");
-  }
-
   service.isAuthenticated = function () {
-    return false;
+    if(service.auth.token)
+      return true;
+    else
+      return false;
   }
 
-  // service.createUser = function(newUser){
-  //   var encryptedPassword = window.btoa(`${newUser.username}:${newUser.password}`);
-  //   newUser.password = encryptedPassword;
-  //   var response = $http({
-  //     method: "POST",
-  //     url: "http://localhost:8080/jpa/users",
-  //     data: newUser
-  //   }).then(
-  //     function success(response){
-  //       console.log("User Created! User -> {}", response);
-  //       //do something
-  //     }
-  //   )
-  // }
+  service.login = function(user){
 
-  ///POST jpa/users
+    //var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
+    //var login = { username: user.username, password: encryptedPassword}
+    //user.password = encryptedPassword;
+
+    service.authenticate = function (){
+      console.log("authenticating user");
+
+      var response = $http({
+        method: "POST",
+        url: "http://localhost:8080/authenticate",
+        data: user
+      });
+
+      return response;
+    }
+
+    var promise = service.authenticate();
+
+    promise.then(function (response){
+      var data = response.data;
+      console.log(data);
+      service.auth = data;
+console.log(service.auth.token);
+    })
+    .catch(function (error) {
+      console.log("Something went terribly wrong." + error.message);
+    });
+
+
+
+  }
+
 }
 
 })();

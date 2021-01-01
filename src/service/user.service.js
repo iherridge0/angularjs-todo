@@ -10,22 +10,37 @@ function UserService($http) {
 
   console.log("UserService is up and running");
 
-  service.createUser = function(newUser){
-    var encryptedPassword = window.btoa(`${newUser.username}:${newUser.password}`);
-    newUser.password = encryptedPassword;
-    var response = $http({
-      method: "POST",
-      url: "http://localhost:8080/jpa/users",
-      data: newUser
-    }).then(
-      function success(response){
-        console.log("User Created! User -> {}", response);
-        //do something
-      }
-    )
+  service.register = function(newUser){
+    //var encryptedPassword = window.btoa(`${newUser.username}:${newUser.password}`);
+    //newUser.password = encryptedPassword;
+
+
+    service.createNewUser = function (){
+      console.log("Creating new user");
+
+      var response = $http({
+        method: "POST",
+        url: "http://localhost:8080/jpa/users",
+        data: newUser
+      });
+
+      return response;
+    }
+
+    var promise = service.createNewUser();
+
+    promise.then(function (response){
+      var data = response.data;
+      console.log(data);
+
+    })
+    .catch(function (error) {
+      console.log("Something went terribly wrong." + error.message);
+    });
   }
 
-  ///POST jpa/users
+
+
 }
 
 })();

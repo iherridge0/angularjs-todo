@@ -12,8 +12,12 @@ function RegisterController(UserService, AuthService, $state){
 
   $ctrl.register = function () {
     console.log("registering");
-    UserService.createUser($ctrl.newUser);
-    AuthService.authenticate($ctrl.newUser);
+
+    UserService.register($ctrl.newUser);
+
+    
+
+
     $state.go('todo-list');
   };
 };
