@@ -4,8 +4,8 @@
 angular.module('Login')
 .controller('LoginController', LoginController);
 
-LoginController.$inject = ['UserService']
-function LoginController(UserService){
+LoginController.$inject = ['UserService', 'AuthService', '$state']
+function LoginController(UserService, AuthService, $state){
   var $ctrl = this;
 
   $ctrl.login = {}
@@ -16,6 +16,10 @@ function LoginController(UserService){
 
   $ctrl.authenticateUser = function () {
     console.log("LoginController.authenticateUser()");
+    AuthService.login($ctrl.login);
+
+
+        $state.go('todo-list');
 
   };
 };
