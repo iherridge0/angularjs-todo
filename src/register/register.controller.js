@@ -4,8 +4,8 @@
 angular.module('Register')
 .controller('RegisterController', RegisterController);
 
-RegisterController.$inject = ['UserService', '$state']
-function RegisterController(UserService, $state){
+RegisterController.$inject = ['UserService', 'AuthService', '$state']
+function RegisterController(UserService, AuthService, $state){
   var $ctrl = this;
 
   $ctrl.newUser = {}
@@ -13,7 +13,8 @@ function RegisterController(UserService, $state){
   $ctrl.register = function () {
     console.log("registering");
     UserService.createUser($ctrl.newUser);
-    $state.go('todo-list')
+    AuthService.authenticate($ctrl.newUser);
+    $state.go('todo-list');
   };
 };
 

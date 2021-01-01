@@ -18,6 +18,14 @@ function AuthService($http) {
 
   }
 
+  service.authenticate = function (){
+    console.log("authenticating user");
+  }
+
+  service.isAuthenticated = function () {
+    return false;
+  }
+
   // service.createUser = function(newUser){
   //   var encryptedPassword = window.btoa(`${newUser.username}:${newUser.password}`);
   //   newUser.password = encryptedPassword;

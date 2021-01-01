@@ -1,7 +1,7 @@
 (function (){
 'use strict';
 
-angular.module('ToDoApp', ['ui.router','Register', 'Login']);
+angular.module('ToDoApp', ['ui.router','Register', 'Login', 'TodoList']);
 
 angular.module('ToDoApp')
 .config(RoutesConfig);
