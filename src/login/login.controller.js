@@ -10,9 +10,13 @@ function LoginController(UserService){
 
   $ctrl.login = {}
 
+  $ctrl.$onInit = function() {
+    console.log("LoginController.$onInit");
+  }
+
   $ctrl.authenticateUser = function () {
-    console.log("logging in");
-    
+    console.log("LoginController.authenticateUser()");
+
   };
 };
 

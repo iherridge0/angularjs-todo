@@ -7,16 +7,5 @@ angular.module('Register')
   controller: RegisterController
 });
 
-RegisterController.$inject = ['UserService']
-function RegisterController(UserService){
-  var $ctrl = this;
-
-  $ctrl.newUser = {}
-
-  $ctrl.register = function () {
-    console.log("registering");
-    UserService.createUser($ctrl.newUser);
-  };
-};
 
 })();

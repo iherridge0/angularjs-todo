@@ -24,6 +24,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: 'src/login/login.template.html',
       controller: 'LoginController as $ctrl'
+    })
+
+    .state('todo-list', {
+      url: '/todo-list',
+      templateUrl: 'src/todo-list/todo-list.template.html',
+      controller: 'TodoListController as $ctrl'
     });
 }
 
