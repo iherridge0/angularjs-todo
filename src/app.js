@@ -16,12 +16,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('register', {
       url: '/register',
-      template: '<register></register>'
+      templateUrl: 'src/register/register.template.html'
     })
 
     .state('login', {
       url: '/login',
-      template: '<login></login>'
+      templateUrl: 'src/login/login.template.html'
     });
 }
 
