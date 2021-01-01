@@ -1,18 +1,18 @@
-<div class="container">
-    <h1>Register!</h1>
-    <form ng-submit="$ctrl.register()">
-
+<main class="form-register">
+    <form class="form-signin" ng-submit="$ctrl.register()">
+        <h1 class="h3 mb-3 fw-normal">Register a new user</h1>
         <div class="login">
             <div>
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" ng-model="$ctrl.newUser.username">
+                <input type="text" id="username" class="form-control"
+                      placeholder="Enter a unique username, be creative!" ng-model="$ctrl.newUser.username">
             </div>
             <div>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" ng-model="$ctrl.newUser.password">
+                <input type="password" id="password" class="form-control"
+                      placeholder="Enter your password"  ng-model="$ctrl.newUser.password">
             </div>
             <br>
-            <button type="submit" class="btn btn-success">Register</button>
+            <button id="register" type="submit" class="w-100 btn btn-lg btn-info">Register</button>
+            <button id="back" ui-sref="login" class="w-100 btn btn-lg btn-dark">back</button>
         </div>
     </form>
 </div>

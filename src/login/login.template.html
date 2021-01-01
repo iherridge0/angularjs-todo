@@ -1,18 +1,20 @@
-<div class="container">
-    <h1>Login!</h1>
+<main class="form-login">
     <form ng-submit="$ctrl.authenticateUser()">
-
+      <h1 class="h3 mb-3 fw-normal">Please log in</h1>
         <div class="login">
             <div>
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" ng-model="$ctrl.login.username">
+                <input type="text" id="username" class="form-control"
+                      placeholder="Enter your unique username" ng-model="$ctrl.login.username"
+                      required autofocus>
             </div>
             <div>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" ng-model="$ctrl.login.password">
+                <input type="password" id="password" class="form-control"
+                      placeholder="Enter your password" ng-model="$ctrl.login.password"
+                      required>
             </div>
             <br>
-            <button type="submit" class="btn btn-success">Login</button>
+            <button id="login" type="submit" class="w-100 btn btn-lg btn-info">Login</button>
+            <button id="register" ui-sref="register" class="w-100 btn btn-lg btn-dark">Register</button>
         </div>
     </form>
-</div>
+</main>
