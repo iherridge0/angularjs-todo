@@ -11,14 +11,24 @@ function RegisterController(UserService, AuthService, $state){
   $ctrl.newUser = {}
 
   $ctrl.register = function () {
-    console.log("registering");
+    console.log("RegisterController.registering()");
 
-    UserService.register($ctrl.newUser);
+    var promise = UserService.register($ctrl.newUser);
 
-    
+    promise.then(function (response){
+      var data = response.data;
+      //AuthService.auth.token = data.token;
+      console.log(response);
+    //  $state.go('todo-list')
+    }, function (error){
+      console.log(error)
+      //$state.go('login')
+    });
 
 
-    $state.go('todo-list');
+
+
+    //$state.go('todo-list');
   };
 };
 

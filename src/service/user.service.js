@@ -10,37 +10,20 @@ function UserService($http) {
 
   console.log("UserService is up and running");
 
-  service.register = function(newUser){
-    //var encryptedPassword = window.btoa(`${newUser.username}:${newUser.password}`);
-    //newUser.password = encryptedPassword;
+  service.register = function(user){
+    console.log("UserService.register()");
 
+    var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
+    user.password = encryptedPassword;
 
-    service.createNewUser = function (){
-      console.log("Creating new user");
-
-      var response = $http({
-        method: "POST",
-        url: "http://localhost:8080/jpa/users",
-        data: newUser
-      });
-
-      return response;
-    }
-
-    var promise = service.createNewUser();
-
-    promise.then(function (response){
-      var data = response.data;
-      console.log(data);
-
-    })
-    .catch(function (error) {
-      console.log("Something went terribly wrong." + error.message);
+    var response = $http({
+      method: "POST",
+      url: "http://localhost:8080/jpa/users",
+      data: user
     });
+
+    return response;
   }
-
-
-
 }
 
 })();

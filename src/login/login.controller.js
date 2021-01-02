@@ -17,9 +17,17 @@ function LoginController(UserService, AuthService, $state){
   $ctrl.authenticateUser = function () {
     console.log("LoginController.authenticateUser()");
 
-    AuthService.login($ctrl.login);
+    var promise = AuthService.login($ctrl.login);
 
-    console.log("From LoginController -> token {}", AuthService.auth);
+    promise.then(function (response){
+      var data = response.data;
+      AuthService.auth.token = data.token;
+      console.log(response);
+      $state.go('todo-list')
+    }, function (error){
+      console.log(error)
+      $state.go('login')
+    });
 
   };
 };

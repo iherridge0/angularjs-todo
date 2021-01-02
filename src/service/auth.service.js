@@ -27,26 +27,8 @@ function AuthService($http) {
 
   service.login = function(user){
 
-    //var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
-    //var login = { username: user.username, password: encryptedPassword}
-    //user.password = encryptedPassword;
-
-    var promise = service.authenticate(user);
-
-    promise.then(function (response){
-      var data = response.data;
-      console.log(data);
-      service.auth.token = data.token;
-      console.log(service.auth.token);
-    })
-    .catch(function (error) {
-      console.log("Something went terribly wrong." + error.message);
-    });
-
-
-  }
-  service.authenticate = function (user){
-    console.log("authenticating user");
+    var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
+    user.password = encryptedPassword;
 
     var response = $http({
       method: "POST",
@@ -56,7 +38,6 @@ function AuthService($http) {
 
     return response;
   }
-
 }
 
 })();
