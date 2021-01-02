@@ -17,18 +17,13 @@ function RegisterController(UserService, AuthService, $state){
 
     promise.then(function (response){
       var data = response.data;
-      //AuthService.auth.token = data.token;
-      console.log(response);
-    //  $state.go('todo-list')
+      console.log("User created -> username: " + $ctrl.newUser.username);
+      $state.go('login')
+
     }, function (error){
-      console.log(error)
-      //$state.go('login')
+      console.log("Error while creating a new user -> username: " + $ctrl.newUser.username + " already exist, please try a different username ");
     });
 
-
-
-
-    //$state.go('todo-list');
   };
 };
 

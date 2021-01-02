@@ -27,8 +27,8 @@ function AuthService($http) {
 
   service.login = function(user){
 
-    var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
-    user.password = encryptedPassword;
+    // var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
+    // user.password = encryptedPassword;
 
     var response = $http({
       method: "POST",

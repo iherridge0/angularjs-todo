@@ -13,8 +13,8 @@ function UserService($http) {
   service.register = function(user){
     console.log("UserService.register()");
 
-    var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
-    user.password = encryptedPassword;
+    // var encryptedPassword = window.btoa(`${user.username}:${user.password}`);
+    // user.password = encryptedPassword;
 
     var response = $http({
       method: "POST",
