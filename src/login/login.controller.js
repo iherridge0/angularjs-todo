@@ -16,10 +16,10 @@ function LoginController(UserService, AuthService, $state){
 
   $ctrl.authenticateUser = function () {
     console.log("LoginController.authenticateUser()");
+
     AuthService.login($ctrl.login);
 
-
-        $state.go('todo-list');
+    console.log("From LoginController -> token {}", AuthService.auth);
 
   };
 };

@@ -12,7 +12,7 @@ function TodoListController(UserService, AuthService, $state){
 
   $ctrl.$onInit = function() {
     console.log("TodoListController.$onInit");
-
+    console.log("From TodoListController -> token {}", AuthService.auth);
     if(!AuthService.isAuthenticated()) {
       $state.go('login');
     }

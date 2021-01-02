@@ -31,32 +31,30 @@ function AuthService($http) {
     //var login = { username: user.username, password: encryptedPassword}
     //user.password = encryptedPassword;
 
-    service.authenticate = function (){
-      console.log("authenticating user");
-
-      var response = $http({
-        method: "POST",
-        url: "http://localhost:8080/authenticate",
-        data: user
-      });
-
-      return response;
-    }
-
-    var promise = service.authenticate();
+    var promise = service.authenticate(user);
 
     promise.then(function (response){
       var data = response.data;
       console.log(data);
-      service.auth = data;
-console.log(service.auth.token);
+      service.auth.token = data.token;
+      console.log(service.auth.token);
     })
     .catch(function (error) {
       console.log("Something went terribly wrong." + error.message);
     });
 
 
+  }
+  service.authenticate = function (user){
+    console.log("authenticating user");
 
+    var response = $http({
+      method: "POST",
+      url: "http://localhost:8080/authenticate",
+      data: user
+    });
+
+    return response;
   }
 
 }
