@@ -26,9 +26,12 @@ function RegisterController(UserService, AuthService, $state){
 
     }, function (error){
       if(error.status == -1) {
-        $ctrl.errorMessage = 'The backend is currently down, please try again later'
-      } else {
+        $ctrl.errorMessage = 'The backend is currently down, please try again later';
+      } else if(error.status == 409) {
         $ctrl.errorMessage = $ctrl.newUser.username + ' already exist, please try a different username.';
+      } else {
+        //Validation errors
+        $ctrl.errorMessage = 'Check your validations';
       }
       //console.log("Error while creating a new user -> username: " + $ctrl.newUser.username + " already exist, please try a different username ");
     });
